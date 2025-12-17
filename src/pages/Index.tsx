@@ -70,6 +70,15 @@ const Index = () => {
     { step: '05', title: 'Монтаж', description: 'Приезжаем, устанавливаем, убираем за собой. Красота.' },
   ];
 
+  const portfolioItems = [
+    { id: 1, title: 'Ворота с ковкой', category: 'Ворота', image: 'https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/a6463f74-74d1-412c-8bb3-f64061ad26f1.jpg' },
+    { id: 2, title: 'Металлический навес', category: 'Навесы', image: 'https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/e60530c9-d4ec-4a9c-afe1-a03fd0db17ac.jpg' },
+    { id: 3, title: 'Перила и ограждения', category: 'Перила', image: 'https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/d267b2e6-0032-4de6-81b6-968acbd14d7e.jpg' },
+    { id: 4, title: 'Лестница с ковкой', category: 'Каркасы', image: 'https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/b3d7d613-e1a7-4bc2-88ba-0530e094b90c.jpg' },
+    { id: 5, title: 'Металлическая беседка', category: 'Навесы', image: 'https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/91763cf3-0d26-480b-94ee-1106ed141a12.jpg' },
+    { id: 6, title: 'Мастерская Эребор', category: 'О нас', image: 'https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/1d47f698-4c29-44d6-8389-7e0e962d9c5a.jpg' },
+  ];
+
   const reviews = [
     { name: 'Алексей М.', location: 'Центральный район', text: 'Сделали навес идеально, приехали в срок, смонтировали быстро. Рекомендую!', stars: 5 },
     { name: 'Ирина К.', location: 'Хостинский район', text: 'Перила получились очень красивыми, ровные швы, качественная покраска. Спасибо!', stars: 5 },
@@ -82,8 +91,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative min-h-screen flex items-center justify-center metal-texture grid-pattern overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background"></div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background/90 to-background z-[1]"></div>
+        <div className="absolute inset-0 opacity-20">
+          <img src="https://cdn.poehali.dev/projects/6c1d63c6-9850-43fe-802b-d4ce47e1d66a/files/1d47f698-4c29-44d6-8389-7e0e962d9c5a.jpg" alt="" className="w-full h-full object-cover" />
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
@@ -194,13 +206,18 @@ const Index = () => {
             Здесь будут реальные фотографии наших проектов: навесы, ворота, перила, элементы ковки и индивидуальные изделия
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <Card key={i} className="bg-card border-border overflow-hidden hover:border-primary transition-all">
-                <div className="aspect-video bg-muted flex items-center justify-center">
-                  <Icon name="Image" className="text-muted-foreground" size={48} />
+            {portfolioItems.map((item, i) => (
+              <Card key={item.id} className="bg-card border-border overflow-hidden hover:border-primary transition-all group animate-scale-in" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="aspect-video overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
                 <CardContent className="p-4">
-                  <p className="text-sm text-muted-foreground">Проект #{i}</p>
+                  <p className="font-semibold mb-1">{item.title}</p>
+                  <p className="text-sm text-muted-foreground">{item.category}</p>
                 </CardContent>
               </Card>
             ))}
