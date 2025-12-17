@@ -306,24 +306,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">Кто мы такие</h2>
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Мастерская Металла «Эребор» — это цех, созданный мастерами Тамазом и Гией.
-              Мы соединяем мастерство ковки, аккуратность сварки и уважение к металлу.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Каждый проект делаем так, будто устанавливаем у себя дома.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              А Глеб отвечает за маркетинг, порядок и чтобы компания выглядела круто (ну а кто ещё?).
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="py-24 metal-texture">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">Что говорят наши клиенты</h2>
